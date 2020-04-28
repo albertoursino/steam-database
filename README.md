@@ -1,5 +1,8 @@
 SteamApp
 ========
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/66699d08943c49f6bf18cfc9b4d9dfc0)](https://app.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=AlbertoUrsino/SteamApp&utm_campaign=Badge_Grade_Settings)
+
 Project for the "Databases" course.
 
 University of Padova.
