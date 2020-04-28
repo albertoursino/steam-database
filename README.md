@@ -17,7 +17,7 @@ LICENSE
 
 Read the [LICENSE](https://github.com/AlbertoUrsino/SteamApp/blob/master/LICENSE) file for more information.
 
-Authors
+AUTHORS
 ======
 * [Alberto Ursino](https://github.com/AlbertoUrsino)
 * [Marco Mariotto](https://github.com/d-u-d-e)
