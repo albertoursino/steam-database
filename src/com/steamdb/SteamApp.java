@@ -10,12 +10,14 @@ import java.sql.SQLException;
 
 public class SteamApp {
 
+    Connection connection = null;
+
     SteamApp(String[] args) {
 
     }
 
     public void show() {
-        int row = 6;
+        int no_rows = 6;
 
         // Show the UI.
         JFrame frame = new JFrame("Steam Database");
@@ -28,11 +30,11 @@ public class SteamApp {
         JTextField portText = new JTextField(6);
         JTextField dbText = new JTextField(20);
         JTextField userText = new JTextField(20);
-        JLabel response = new JLabel();
+        JLabel connectionResponse = new JLabel();
         JPasswordField pwText = new JPasswordField(10);
-        JPanel[] rows = new JPanel[row];
+        JPanel[] rows = new JPanel[no_rows];
 
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < no_rows; i++) {
             rows[i] = new JPanel();
             rows[i].setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
         }
@@ -59,15 +61,19 @@ public class SteamApp {
 
 
         //ADD A BUTTON TO ESTABLISH CONNECTION
-        JButton connection_btn = new JButton("Connect");
-        connection_btn.setHorizontalAlignment(JButton.CENTER);
-        connection_btn.setMargin(new Insets(5, 5, 5, 5));
-        connection_btn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        JButton connectionBtn = new JButton("Connect");
+        connectionBtn.setHorizontalAlignment(JButton.CENTER);
+        connectionBtn.setMargin(new Insets(5, 5, 5, 5));
+        connectionBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
 
-        response.setHorizontalAlignment(JLabel.CENTER);
-        response.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+        //SHOW THIS ONLY IF THE CONNECTION HAS BEEN SUCCESSFULLY ESTABLISHED
+        JButton queryBtn = new JButton("Start a query");
+        queryBtn.setHorizontalAlignment(JButton.CENTER);
+        queryBtn.setMargin(new Insets(5, 5, 5, 5));
+        queryBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        queryBtn.setVisible(false);
 
-        connection_btn.addActionListener(new ActionListener() {
+        connectionBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
@@ -76,28 +82,42 @@ public class SteamApp {
                     e.printStackTrace();
                 }
                 try {
-                    createConnection(addText.getText(), portText.getText(), dbText.getText(), userText.getText(), String.valueOf(pwText.getPassword()));
-                    response.setText("Connection OK");
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                    response.setText("Something went wrong");
+                    if (connection != null){
+                        connection.close();
+                        queryBtn.setVisible(false);
+                    }
+                    connection = createConnection(addText.getText(), portText.getText(), dbText.getText(),
+                            userText.getText(), String.valueOf(pwText.getPassword()));
+                    connectionResponse.setText("Connection established. You can now query the db");
+                    queryBtn.setVisible(true);
+                } catch (SQLException e) {
+                    connectionResponse.setText("<html><p style=\"text-align:center\">Something went wrong.<br>"
+                            + e.getMessage() + "</p></html>");
                 }
             }
         });
 
+        connectionResponse.setHorizontalAlignment(JLabel.CENTER);
+        connectionResponse.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+
         //PUT EVERYTHING TOGETHER
         Box verticalBox = Box.createVerticalBox();
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < no_rows; i++) {
             rows[i].setMaximumSize(new Dimension(Integer.MAX_VALUE, rows[i].getHeight()));
             verticalBox.add(rows[i], JComponent.LEFT_ALIGNMENT);
         }
 
         Component c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 20));
         verticalBox.add(c);
-        verticalBox.add(connection_btn);
-        verticalBox.add(response);
-        verticalBox.add(Box.createVerticalGlue());
+        verticalBox.add(connectionBtn);
+        c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 10));
+        verticalBox.add(c);
+        verticalBox.add(connectionResponse);
+        c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 10));
+        verticalBox.add(c);
+        verticalBox.add(queryBtn);
 
+        verticalBox.add(Box.createVerticalGlue());
         frame.add(verticalBox);
         frame.setSize(500, 500);
         frame.setLocationRelativeTo(null);
