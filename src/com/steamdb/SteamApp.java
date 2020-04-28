@@ -76,7 +76,7 @@ public class SteamApp {
                     e.printStackTrace();
                 }
                 try {
-                    Connection connection = createConnection(addText.getText(), portText.getText(), dbText.getText(), userText.getText(), String.valueOf(pwText.getPassword()));
+                    createConnection(addText.getText(), portText.getText(), dbText.getText(), userText.getText(), String.valueOf(pwText.getPassword()));
                     response.setText("Connection OK");
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
