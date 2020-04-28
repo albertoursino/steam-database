@@ -12,10 +12,10 @@ capable of querying a database, always created by us, inspired by the homonymous
 
 In development...
 
-LICENCE
+LICENSE
 =======
 
-Read the [LICENZA](https://github.com/AlbertoUrsino/SteamApp/blob/master/LICENSE) file for more information.
+Read the [LICENSE](https://github.com/AlbertoUrsino/SteamApp/blob/master/LICENSE) file for more information.
 
 Authors
 ======
