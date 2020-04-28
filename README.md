@@ -1,4 +1,4 @@
-SteamApp
+SteamApp [![Codacy Badge](https://api.codacy.com/project/badge/Grade/62b82c524d334c86a61da524d8912346)](https://www.codacy.com/p/321326?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlbertoUrsino/SteamApp&amp;utm_campaign=Badge_Grade)
 ========
 Project for the "Databases" course.
 
