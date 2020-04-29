@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class SteamApp {
 
     Connection connection = null;
@@ -17,10 +16,9 @@ public class SteamApp {
     public static String title = "Steam Database Application";
 
     SteamApp(String[] args) {
-
     }
 
-    public void showMainWindow(){
+    public void showMainWindow() {
         JFrame frame = new JFrame(title);
         mainWin = new MainWindow();
         frame.setContentPane(mainWin.mainPanel);
@@ -38,7 +36,7 @@ public class SteamApp {
                     e.printStackTrace();
                 }
                 try {
-                    if (connection != null){
+                    if (connection != null) {
                         connection.close();
                         mainWin.queryBtn.setEnabled(false);
                     }
@@ -60,68 +58,10 @@ public class SteamApp {
                 showQueryWindow();
             }
         });
-
-         /*
-        int no_rows = 6;
-
-        // Show the UI.
-        JFrame frame = new JFrame("Steam Database");
-        JLabel addLab = new JLabel("IP Address: ");
-        JLabel portLab = new JLabel("Port: ");
-        JLabel userLab = new JLabel("Username: ");
-        JLabel pwLab = new JLabel("Password: ");
-        JLabel dbLab = new JLabel("Database name: ");
-        JTextField addText = new JTextField(12);
-        JTextField portText = new JTextField(6);
-        JTextField dbText = new JTextField(20);
-        JTextField userText = new JTextField(20);
-        JLabel connectionResponse = new JLabel();
-        JPasswordField pwText = new JPasswordField(10);
-        JPanel[] rows = new JPanel[no_rows];
-
-        for (int i = 0; i < no_rows; i++) {
-            rows[i] = new JPanel();
-            rows[i].setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        }
-
-        //1st ROW: SERVER ADDRESS
-        rows[0].add(addLab);
-        rows[0].add(addText);
-
-        //2nd ROW: PORT
-        rows[1].add(portLab);
-        rows[1].add(portText);
-
-        //3rd ROW: DB NAME
-        rows[2].add(dbLab);
-        rows[2].add(dbText);
-
-        //4th ROW: USER NAME
-        rows[3].add(userLab);
-        rows[3].add(userText);
-
-        //5th ROW: PASSWORD
-        rows[4].add(pwLab);
-        rows[4].add(pwText);
-
-
-        //ADD A BUTTON TO ESTABLISH CONNECTION
-        JButton connectionBtn = new JButton("Connect");
-        connectionBtn.setHorizontalAlignment(JButton.CENTER);
-        connectionBtn.setMargin(new Insets(5, 5, 5, 5));
-        connectionBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-
-        //SHOW THIS ONLY IF THE CONNECTION HAS BEEN SUCCESSFULLY ESTABLISHED
-        JButton queryBtn = new JButton("Start a query");
-        queryBtn.setHorizontalAlignment(JButton.CENTER);
-        queryBtn.setMargin(new Insets(5, 5, 5, 5));
-        queryBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-        queryBtn.setVisible(false);*/
     }
 
     public void showQueryWindow() {
-
-        JDialog dialog = new JDialog((JFrame)null, "interroga il db", true);
+        JDialog dialog = new JDialog((JFrame) null, "interroga il db", true);
         queryWin = new QueryWindow();
         dialog.setContentPane(queryWin.mainPanel);
         dialog.setContentPane(queryWin.mainPanel);
@@ -141,7 +81,6 @@ public class SteamApp {
                 steamApp.showMainWindow();
             }
         });
-
     }
 
     /**
@@ -158,4 +97,5 @@ public class SteamApp {
         return DriverManager.getConnection("jdbc:postgresql://" +
                 address + ":" + port + "/" + dbName, username, password);
     }
+
 }
