@@ -1,22 +1,32 @@
 package com.steamdb;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class SteamApp {
 
     Connection connection = null;
+    MainWindow mainWin = null;
 
     SteamApp(String[] args) {
 
     }
 
     public void show() {
+        JFrame frame = new JFrame("Steam Database");
+        mainWin = new MainWindow();
+        frame.setContentPane(mainWin.mainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        /*
         int no_rows = 6;
 
         // Show the UI.
@@ -71,9 +81,9 @@ public class SteamApp {
         queryBtn.setHorizontalAlignment(JButton.CENTER);
         queryBtn.setMargin(new Insets(5, 5, 5, 5));
         queryBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-        queryBtn.setVisible(false);
+        queryBtn.setVisible(false);*/
 
-        connectionBtn.addActionListener(new ActionListener() {
+        mainWin.connBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
@@ -84,45 +94,19 @@ public class SteamApp {
                 try {
                     if (connection != null){
                         connection.close();
-                        queryBtn.setVisible(false);
+                        mainWin.queryBtn.setVisible(false);
                     }
-                    connection = createConnection(addText.getText(), portText.getText(), dbText.getText(),
-                            userText.getText(), String.valueOf(pwText.getPassword()));
-                    connectionResponse.setText("Connection established. You can now query the db");
-                    queryBtn.setVisible(true);
+                    connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
+                            mainWin.dbNameText.getText(), mainWin.userText.getText(),
+                            String.valueOf(mainWin.passwdText.getPassword()));
+                    mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
+                    mainWin.queryBtn.setVisible(true);
                 } catch (SQLException e) {
-                    connectionResponse.setText("<html><p style=\"text-align:center\">Something went wrong.<br>"
+                    mainWin.connResponse.setText("<html><p style=\"text-align:center\">Qualcosa è andato storto.<br>"
                             + e.getMessage() + "</p></html>");
                 }
             }
         });
-
-        connectionResponse.setHorizontalAlignment(JLabel.CENTER);
-        connectionResponse.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-
-        //PUT EVERYTHING TOGETHER
-        Box verticalBox = Box.createVerticalBox();
-        for (int i = 0; i < no_rows; i++) {
-            rows[i].setMaximumSize(new Dimension(Integer.MAX_VALUE, rows[i].getHeight()));
-            verticalBox.add(rows[i], JComponent.LEFT_ALIGNMENT);
-        }
-
-        Component c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 20));
-        verticalBox.add(c);
-        verticalBox.add(connectionBtn);
-        c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 10));
-        verticalBox.add(c);
-        verticalBox.add(connectionResponse);
-        c = Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 10));
-        verticalBox.add(c);
-        verticalBox.add(queryBtn);
-
-        verticalBox.add(Box.createVerticalGlue());
-        frame.add(verticalBox);
-        frame.setSize(500, 500);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
     }
 
     public static void main(final String[] args) {
@@ -139,15 +123,17 @@ public class SteamApp {
     }
 
     /**
-     * @param address  of the database, can't be null
-     * @param port     of the databse, can't be null
+     * @param address  ip address of the server hosting the database, can't be null
+     * @param port     of the server, can't be null
      * @param dbName   name of the database, can't be null
-     * @param username of user who is connection to the database, can't be null
-     * @param password of the user who is connection to the database, can't be null
+     * @param username who wants to connect to the database, can't be null
+     * @param password of the user, can't be null
      * @return the {@link Connection} object
-     * @throws SQLException may be thrown if something wrong with the database happens
+     * @throws SQLException may be thrown if something goes wrong with the connection
      */
-    public static Connection createConnection(String address, String port, String dbName, String username, String password) throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://" + address + ":" + port + "/" + dbName, username, password);
+    public static Connection createConnection(String address, String port, String dbName, String username, String password)
+            throws SQLException {
+        return DriverManager.getConnection("jdbc:postgresql://" +
+                address + ":" + port + "/" + dbName, username, password);
     }
 }
