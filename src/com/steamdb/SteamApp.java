@@ -12,13 +12,16 @@ public class SteamApp {
 
     Connection connection = null;
     MainWindow mainWin = null;
+    QueryWindow queryWin = null;
+
+    public static String title = "Steam Database Application";
 
     SteamApp(String[] args) {
 
     }
 
-    public void show() {
-        JFrame frame = new JFrame("Steam Database");
+    public void showMainWindow(){
+        JFrame frame = new JFrame(title);
         mainWin = new MainWindow();
         frame.setContentPane(mainWin.mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,7 +29,39 @@ public class SteamApp {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        /*
+        mainWin.connBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    if (connection != null){
+                        connection.close();
+                        mainWin.queryBtn.setEnabled(false);
+                    }
+                    connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
+                            mainWin.dbNameText.getText(), mainWin.userText.getText(),
+                            String.valueOf(mainWin.passwdText.getPassword()));
+                    mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
+                    mainWin.queryBtn.setEnabled(true);
+                } catch (SQLException e) {
+                    mainWin.connResponse.setText("<html><p style=\"text-align:center\">Qualcosa è andato storto.<br>"
+                            + e.getMessage() + "</p></html>");
+                }
+            }
+        });
+
+        mainWin.queryBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showQueryWindow();
+            }
+        });
+
+         /*
         int no_rows = 6;
 
         // Show the UI.
@@ -82,31 +117,18 @@ public class SteamApp {
         queryBtn.setMargin(new Insets(5, 5, 5, 5));
         queryBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
         queryBtn.setVisible(false);*/
+    }
 
-        mainWin.connBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                try {
-                    Class.forName("org.postgresql.Driver");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    if (connection != null){
-                        connection.close();
-                        mainWin.queryBtn.setVisible(false);
-                    }
-                    connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
-                            mainWin.dbNameText.getText(), mainWin.userText.getText(),
-                            String.valueOf(mainWin.passwdText.getPassword()));
-                    mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
-                    mainWin.queryBtn.setVisible(true);
-                } catch (SQLException e) {
-                    mainWin.connResponse.setText("<html><p style=\"text-align:center\">Qualcosa è andato storto.<br>"
-                            + e.getMessage() + "</p></html>");
-                }
-            }
-        });
+    public void showQueryWindow() {
+
+        JDialog dialog = new JDialog((JFrame)null, "interroga il db", true);
+        queryWin = new QueryWindow();
+        dialog.setContentPane(queryWin.mainPanel);
+        dialog.setContentPane(queryWin.mainPanel);
+        dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
 
     public static void main(final String[] args) {
@@ -116,7 +138,7 @@ public class SteamApp {
         // creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                steamApp.show();
+                steamApp.showMainWindow();
             }
         });
 

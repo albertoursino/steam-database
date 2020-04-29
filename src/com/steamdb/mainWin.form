@@ -44,7 +44,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="5432"/>
             </properties>
           </component>
           <component id="cbe29" class="javax.swing.JTextField" binding="servAddrText">
@@ -74,7 +74,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="Steam"/>
             </properties>
           </component>
           <vspacer id="ea311">
@@ -214,8 +214,9 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <enabled value="false"/>
               <text value="Interroga il database"/>
-              <visible value="false"/>
+              <visible value="true"/>
             </properties>
           </component>
         </children>
