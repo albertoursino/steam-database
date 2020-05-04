@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class SteamApp {
 
     Connection connection = null;
@@ -17,10 +16,9 @@ public class SteamApp {
     public static String title = "Steam Database Application";
 
     SteamApp(String[] args) {
-
     }
 
-    public void showMainWindow(){
+    public void showMainWindow() {
         JFrame frame = new JFrame(title);
         mainWin = new MainWindow();
         frame.setContentPane(mainWin.mainPanel);
@@ -34,26 +32,22 @@ public class SteamApp {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     Class.forName("org.postgresql.Driver");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try {
                     if(mainWin.connBtn.getText().equals("Connetti")){
                         if (connection != null)
                             connection.close();
-                    connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
+                        connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
                             mainWin.dbNameText.getText(), mainWin.userText.getText(),
                             String.valueOf(mainWin.passwdText.getPassword()));
-                    mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
-                    mainWin.queryBtn.setEnabled(true);
-                    mainWin.connBtn.setText("Disconnetti");
-                    return;
+                        mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
+                        mainWin.queryBtn.setEnabled(true);
+                        mainWin.connBtn.setText("Disconnetti");
+                        return;
                     }
                     else {
                         connection.close();
                         mainWin.connResponse.setText("Riempire i campi per connettersi al database");
                     }
-                }catch(SQLException e) {
+                }catch(SQLException | ClassNotFoundException e) {
                     mainWin.connResponse.setText(htmlCenteredStr(e.getMessage(), 50));
                 }
                 mainWin.queryBtn.setEnabled(false);
@@ -70,8 +64,7 @@ public class SteamApp {
     }
 
     public void showQueryWindow() {
-
-        JDialog dialog = new JDialog((JFrame)null, "interroga il db", true);
+        JDialog dialog = new JDialog((JFrame) null, "interroga il db", true);
         queryWin = new QueryWindow();
         dialog.setContentPane(queryWin.mainPanel);
         dialog.setContentPane(queryWin.mainPanel);
@@ -91,7 +84,6 @@ public class SteamApp {
                 steamApp.showMainWindow();
             }
         });
-
     }
 
     /**
@@ -132,4 +124,5 @@ public class SteamApp {
         builder.append(end);
         return builder.toString();
     }
+
 }
