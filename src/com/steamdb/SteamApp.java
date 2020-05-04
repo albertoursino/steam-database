@@ -38,19 +38,26 @@ public class SteamApp {
                     e.printStackTrace();
                 }
                 try {
-                    if (connection != null){
-                        connection.close();
-                        mainWin.queryBtn.setEnabled(false);
-                    }
+                    if(mainWin.connBtn.getText().equals("Connetti")){
+                        if (connection != null)
+                            connection.close();
                     connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
                             mainWin.dbNameText.getText(), mainWin.userText.getText(),
                             String.valueOf(mainWin.passwdText.getPassword()));
                     mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
                     mainWin.queryBtn.setEnabled(true);
-                } catch (SQLException e) {
-                    mainWin.connResponse.setText("<html><p style=\"text-align:center\">Qualcosa è andato storto.<br>"
-                            + e.getMessage() + "</p></html>");
+                    mainWin.connBtn.setText("Disconnetti");
+                    return;
+                    }
+                    else {
+                        connection.close();
+                        mainWin.connResponse.setText("Riempire i campi per connettersi al database");
+                    }
+                }catch(SQLException e) {
+                    mainWin.connResponse.setText(htmlCenteredStr(e.getMessage(), 50));
                 }
+                mainWin.queryBtn.setEnabled(false);
+                mainWin.connBtn.setText("Connetti");
             }
         });
 
@@ -60,63 +67,6 @@ public class SteamApp {
                 showQueryWindow();
             }
         });
-
-         /*
-        int no_rows = 6;
-
-        // Show the UI.
-        JFrame frame = new JFrame("Steam Database");
-        JLabel addLab = new JLabel("IP Address: ");
-        JLabel portLab = new JLabel("Port: ");
-        JLabel userLab = new JLabel("Username: ");
-        JLabel pwLab = new JLabel("Password: ");
-        JLabel dbLab = new JLabel("Database name: ");
-        JTextField addText = new JTextField(12);
-        JTextField portText = new JTextField(6);
-        JTextField dbText = new JTextField(20);
-        JTextField userText = new JTextField(20);
-        JLabel connectionResponse = new JLabel();
-        JPasswordField pwText = new JPasswordField(10);
-        JPanel[] rows = new JPanel[no_rows];
-
-        for (int i = 0; i < no_rows; i++) {
-            rows[i] = new JPanel();
-            rows[i].setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-        }
-
-        //1st ROW: SERVER ADDRESS
-        rows[0].add(addLab);
-        rows[0].add(addText);
-
-        //2nd ROW: PORT
-        rows[1].add(portLab);
-        rows[1].add(portText);
-
-        //3rd ROW: DB NAME
-        rows[2].add(dbLab);
-        rows[2].add(dbText);
-
-        //4th ROW: USER NAME
-        rows[3].add(userLab);
-        rows[3].add(userText);
-
-        //5th ROW: PASSWORD
-        rows[4].add(pwLab);
-        rows[4].add(pwText);
-
-
-        //ADD A BUTTON TO ESTABLISH CONNECTION
-        JButton connectionBtn = new JButton("Connect");
-        connectionBtn.setHorizontalAlignment(JButton.CENTER);
-        connectionBtn.setMargin(new Insets(5, 5, 5, 5));
-        connectionBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-
-        //SHOW THIS ONLY IF THE CONNECTION HAS BEEN SUCCESSFULLY ESTABLISHED
-        JButton queryBtn = new JButton("Start a query");
-        queryBtn.setHorizontalAlignment(JButton.CENTER);
-        queryBtn.setMargin(new Insets(5, 5, 5, 5));
-        queryBtn.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-        queryBtn.setVisible(false);*/
     }
 
     public void showQueryWindow() {
@@ -157,5 +107,29 @@ public class SteamApp {
             throws SQLException {
         return DriverManager.getConnection("jdbc:postgresql://" +
                 address + ":" + port + "/" + dbName, username, password);
+    }
+
+    /**
+     * format messages such that JLabels displaying it contain at most breakLen chars for each line.
+     * Text is also centered
+     * @param msg to be formatted
+     * @param breakLen number of chars for each line
+     * @return the formatted html message
+     *
+     * */
+    private String htmlCenteredStr(String msg, int breakLen){
+        String head = "<html><p style=\"text-align:center\">";
+        String end = "</p></html>";
+        int msgLen = msg.length();
+        int lineBreaks = msgLen / breakLen;
+        StringBuilder builder = new StringBuilder(head);
+        int i = 0;
+        for(; i < lineBreaks; i++){
+            builder.append(msg.substring(i * breakLen, (i+1) * breakLen));
+            builder.append("<br>");
+        }
+        builder.append(msg.substring(i*breakLen));
+        builder.append(end);
+        return builder.toString();
     }
 }
