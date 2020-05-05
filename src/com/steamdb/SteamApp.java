@@ -32,23 +32,26 @@ public class SteamApp {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     Class.forName("org.postgresql.Driver");
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    if (connection != null) {
-                        connection.close();
-                        mainWin.queryBtn.setEnabled(false);
-                    }
-                    connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
+                    if(mainWin.connBtn.getText().equals("Connetti")){
+                        if (connection != null)
+                            connection.close();
+                        connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
                             mainWin.dbNameText.getText(), mainWin.userText.getText(),
                             String.valueOf(mainWin.passwdText.getPassword()));
-                    mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
-                    mainWin.queryBtn.setEnabled(true);
-                } catch (SQLException e) {
-                    mainWin.connResponse.setText("<html><p style=\"text-align:center\">Qualcosa è andato storto.<br>"
-                            + e.getMessage() + "</p></html>");
+                        mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
+                        mainWin.queryBtn.setEnabled(true);
+                        mainWin.connBtn.setText("Disconnetti");
+                        return;
+                    }
+                    else {
+                        connection.close();
+                        mainWin.connResponse.setText("Riempire i campi per connettersi al database");
+                    }
+                }catch(SQLException | ClassNotFoundException e) {
+                    mainWin.connResponse.setText(htmlCenteredStr(e.getMessage(), 50));
                 }
+                mainWin.queryBtn.setEnabled(false);
+                mainWin.connBtn.setText("Connetti");
             }
         });
 
@@ -96,6 +99,30 @@ public class SteamApp {
             throws SQLException {
         return DriverManager.getConnection("jdbc:postgresql://" +
                 address + ":" + port + "/" + dbName, username, password);
+    }
+
+    /**
+     * format messages such that JLabels displaying it contain at most breakLen chars for each line.
+     * Text is also centered
+     * @param msg to be formatted
+     * @param breakLen number of chars for each line
+     * @return the formatted html message
+     *
+     * */
+    private String htmlCenteredStr(String msg, int breakLen){
+        String head = "<html><p style=\"text-align:center\">";
+        String end = "</p></html>";
+        int msgLen = msg.length();
+        int lineBreaks = msgLen / breakLen;
+        StringBuilder builder = new StringBuilder(head);
+        int i = 0;
+        for(; i < lineBreaks; i++){
+            builder.append(msg.substring(i * breakLen, (i+1) * breakLen));
+            builder.append("<br>");
+        }
+        builder.append(msg.substring(i*breakLen));
+        builder.append(end);
+        return builder.toString();
     }
 
 }
