@@ -13,6 +13,7 @@ public class MainWindow {
         connResponse.setText(FILL_FIELDS);
         dbNameText.setText(DEFAULT_DB);
         connBtn.setText("Connetti");
+        //queryBtn.setEnabled(false); //TODO
     }
 
     JPanel mainPanel;
