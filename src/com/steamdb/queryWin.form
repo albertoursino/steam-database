@@ -22,7 +22,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="b3e4d" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="b3e4d" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
               <tabbedpane title="Query 4"/>
@@ -30,7 +30,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="ebcf1" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="ebcf1" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -46,13 +46,6 @@
                       <text value="Per un dato utente, mostrare la percentuale di achievement"/>
                     </properties>
                   </component>
-                  <vspacer id="f6345">
-                    <constraints>
-                      <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                        <minimum-size width="-1" height="10"/>
-                      </grid>
-                    </constraints>
-                  </vspacer>
                   <component id="63f82" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -69,19 +62,22 @@
                       <text value="per l' utente:"/>
                     </properties>
                   </component>
-                  <component id="b2d20" class="javax.swing.JTextField" binding="userText">
+                  <component id="b2d20" class="javax.swing.JTextField" binding="param_QUERY4_0">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <name value="param_QUERY4_0"/>
+                    </properties>
                   </component>
-                  <component id="74f6a" class="javax.swing.JButton" binding="startBtn">
+                  <component id="74f6a" class="javax.swing.JButton" binding="search_QUERY4">
                     <constraints>
                       <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <name value="search_QUERY4"/>
                       <text value="cerca"/>
                     </properties>
                   </component>
@@ -97,19 +93,11 @@
                       </grid>
                     </constraints>
                   </vspacer>
-                  <component id="6f111" class="javax.swing.JLabel" binding="queryResponse">
-                    <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="response:"/>
-                    </properties>
-                  </component>
                 </children>
               </grid>
               <scrollpane id="709da">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <verticalScrollBarPolicy value="20"/>
@@ -117,16 +105,26 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="8f149" class="javax.swing.JTable" binding="table4" custom-create="true">
+                  <component id="8f149" class="javax.swing.JTable" binding="table_QUERY4">
                     <constraints/>
                     <properties>
                       <autoscrolls value="false"/>
                       <enabled value="false"/>
                       <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY4"/>
                     </properties>
                   </component>
                 </children>
               </scrollpane>
+              <component id="4d6d5" class="javax.swing.JLabel" binding="response_QUERY4">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="response_QUERY4"/>
+                  <text value=""/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="dc96c" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
