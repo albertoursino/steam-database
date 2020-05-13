@@ -14,7 +14,7 @@ public class Query {
      * defined here, along with its sql code and number of parameters. No other code has to be written,
      * except for the form in queryWin.form.
      * */
-    enum implementedQueries {
+    public enum implementedQueries {
         QUERY4("SELECT game_id, ottenuti/totali * 100 AS percentuale_completamento " +
                 "FROM ( SELECT game_id, count(*) AS totali " +
                 "FROM ACHIEVEMENT NATURAL JOIN ( " +
@@ -38,7 +38,7 @@ public class Query {
     };
 
     private final String SQLQuery;
-    String[] columns = null;
+    String[] columns = new String[0];
 
     final ArrayList<Object[]> result = new ArrayList<>();
     String error = "";
