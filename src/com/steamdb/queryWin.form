@@ -127,14 +127,6 @@
               </component>
             </children>
           </grid>
-          <grid id="dc96c" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-            <constraints>
-              <tabbedpane title="Query"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children/>
-          </grid>
           <grid id="b7936" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints>
               <tabbedpane title="Query"/>

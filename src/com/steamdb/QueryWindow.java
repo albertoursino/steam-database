@@ -71,7 +71,7 @@ public class QueryWindow {
      * @param query for this table
      * */
     private void populateTable(Query.implementedQueries query){
-        JTable table = (JTable) getField("table" + query.name());
+        JTable table = (JTable) getField("table_" + query.name());
         DefaultTableModel model = new DefaultTableModel();
         table.setModel(model);
         int index = query.ordinal();
