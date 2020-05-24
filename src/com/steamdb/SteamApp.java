@@ -9,15 +9,20 @@ import java.sql.SQLException;
 
 public class SteamApp {
 
-    Connection connection = null;
-    MainWindow mainWin = null;
-    QueryWindow queryWin = null;
+    static Connection connection = null;
+    static MainWindow mainWin = null;
+    static QueryWindow queryWin = null;
 
     public static String title = "Steam Database Application";
+    static final String errorColor = "red";
 
     SteamApp(String[] args) {
     }
 
+    /**
+     * Display the main window. Set up listener for connect button in order to connect to the database.
+     * If this is successful, enable the query button and set the listener for the query window to be displayed.
+     * */
     public void showMainWindow() {
         JFrame frame = new JFrame(title);
         mainWin = new MainWindow();
@@ -47,8 +52,9 @@ public class SteamApp {
                         connection.close();
                         mainWin.connResponse.setText("Riempire i campi per connettersi al database");
                     }
-                }catch(SQLException | ClassNotFoundException e) {
-                    mainWin.connResponse.setText(htmlCenteredStr(e.getMessage(), 50));
+                }catch(Exception e) {
+                    mainWin.connResponse.setText(Utils.htmlStyleStr(e.getMessage(),
+                            50, Utils.LabelAlignment.center, errorColor));
                 }
                 mainWin.queryBtn.setEnabled(false);
                 mainWin.connBtn.setText("Connetti");
@@ -63,6 +69,9 @@ public class SteamApp {
         });
     }
 
+    /**
+     * display the query window as modal dialog
+     * */
     public void showQueryWindow() {
         JDialog dialog = new JDialog((JFrame) null, "interroga il db", true);
         queryWin = new QueryWindow();
@@ -100,29 +109,4 @@ public class SteamApp {
         return DriverManager.getConnection("jdbc:postgresql://" +
                 address + ":" + port + "/" + dbName, username, password);
     }
-
-    /**
-     * format messages such that JLabels displaying it contain at most breakLen chars for each line.
-     * Text is also centered
-     * @param msg to be formatted
-     * @param breakLen number of chars for each line
-     * @return the formatted html message
-     *
-     * */
-    private String htmlCenteredStr(String msg, int breakLen){
-        String head = "<html><p style=\"text-align:center\">";
-        String end = "</p></html>";
-        int msgLen = msg.length();
-        int lineBreaks = msgLen / breakLen;
-        StringBuilder builder = new StringBuilder(head);
-        int i = 0;
-        for(; i < lineBreaks; i++){
-            builder.append(msg.substring(i * breakLen, (i+1) * breakLen));
-            builder.append("<br>");
-        }
-        builder.append(msg.substring(i*breakLen));
-        builder.append(end);
-        return builder.toString();
-    }
-
 }
