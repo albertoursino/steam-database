@@ -12,16 +12,16 @@ import static java.lang.System.exit;
 public class QueryWindow {
     JPanel mainPanel;
     //Query 4
-    JTable table_QUERY4;
-    JButton search_QUERY4;
-    JLabel response_QUERY4;
-    JTextField param_QUERY4_0;
+    private JTable table_QUERY4;
+    private JButton search_QUERY4;
+    private JLabel response_QUERY4;
+    private JTextField param_QUERY4_0;
     //Query 1
-    JTextField param_QUERY1_1;
-    JTextField param_QUERY1_0;
-    JButton search_QUERY1;
-    JTable table_QUERY1;
-    JLabel response_QUERY1;
+    private JTextField param_QUERY1_1;
+    private JTextField param_QUERY1_0;
+    private JButton search_QUERY1;
+    private JTable table_QUERY1;
+    private JLabel response_QUERY1;
 
     static final int noQueries = Query.implementedQueries.count;
     static final Query.implementedQueries[] queryNames = Query.implementedQueries.values();
