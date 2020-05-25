@@ -1,5 +1,8 @@
 SteamApp
 ========
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5ddd5f4a0ed4467b1ef919fa36b96a3)](https://app.codacy.com/manual/lettomobile/SteamApp?utm_source=github.com&utm_medium=referral&utm_content=lettomobile/SteamApp&utm_campaign=Badge_Grade_Dashboard)
+
 Project for the "Databases" course.
 
 University of Padova.
