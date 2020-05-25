@@ -10,18 +10,18 @@ import static java.lang.System.exit;
 
 
 public class QueryWindow {
-    JPanel mainPanel;
+    protected JPanel mainPanel;
     //Query 4
-    private JTable table_QUERY4;
-    private JButton search_QUERY4;
-    private JLabel response_QUERY4;
-    private JTextField param_QUERY4_0;
+    protected JTable table_QUERY4;
+    protected JButton search_QUERY4;
+    protected JLabel response_QUERY4;
+    protected JTextField param_QUERY4_0;
     //Query 1
-    private JTextField param_QUERY1_1;
-    private JTextField param_QUERY1_0;
-    private JButton search_QUERY1;
-    private JTable table_QUERY1;
-    private JLabel response_QUERY1;
+    protected JTextField param_QUERY1_1;
+    protected JTextField param_QUERY1_0;
+    protected JButton search_QUERY1;
+    protected JTable table_QUERY1;
+    protected JLabel response_QUERY1;
 
     static final int noQueries = Query.implementedQueries.count;
     static final Query.implementedQueries[] queryNames = Query.implementedQueries.values();
