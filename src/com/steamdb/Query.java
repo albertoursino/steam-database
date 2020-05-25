@@ -26,7 +26,7 @@ public class Query {
                 "\t   FROM Guadagna\n" +
                 "\t   WHERE steam_id = %1$s\n" +
                 "\t   GROUP BY game_id ) AS Z) NATURAL JOIN GIOCO;", 1),
-        QUERY1("SELECT username FROM(\n" +
+        QUERY1("SELECT steam_id, username FROM(\n" +
                 "\tSELECT (CASE\n" +
                 "\t\t   \tWHEN utente1 = %1$s THEN utente2\n" +
                 "\t\t\tWHEN utente2 = %1$s THEN utente1\t   \n" +
