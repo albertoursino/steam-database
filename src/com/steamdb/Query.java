@@ -15,17 +15,26 @@ public class Query {
      * except for the form in queryWin.form.
      */
     public enum implementedQueries {
-        QUERY4("SELECT game_id, nome, round(ottenuti::numeric/totali, 2) * 100 AS percentuale_completamento " +
-                "FROM (( SELECT game_id, count(*) AS totali " +
-                "FROM ACHIEVEMENT NATURAL JOIN ( " +
-                "SELECT game_id " +
-                "FROM Libreria " +
-                "WHERE steam_id = %1$s ) AS X " +
-                "GROUP BY game_id ) AS Y NATURAL JOIN " +
-                "( SELECT game_id, count(*) AS ottenuti " +
-                "FROM Guadagna " +
-                "WHERE steam_id = %1$s " +
-                "GROUP BY game_id ) AS Z) NATURAL JOIN GIOCO;", 1);
+        QUERY4("SELECT game_id, nome, round(ottenuti::numeric/totali, 2) * 100 AS percentuale_completamento\n" +
+                "FROM (( SELECT game_id, count(*) AS totali\n" +
+                "\t   FROM ACHIEVEMENT NATURAL JOIN ( \n" +
+                "\t   \t\tSELECT game_id\n" +
+                "\t   \t\tFROM Libreria\n" +
+                "\t   \t\tWHERE steam_id = %1$s ) AS X\n" +
+                "\t   GROUP BY game_id ) AS Y NATURAL JOIN \n" +
+                "\t ( SELECT game_id, count(*) AS ottenuti\n" +
+                "\t   FROM Guadagna\n" +
+                "\t   WHERE steam_id = %1$s\n" +
+                "\t   GROUP BY game_id ) AS Z) NATURAL JOIN GIOCO;", 1),
+        QUERY1("SELECT steam_id, username FROM(\n" +
+                "\tSELECT (CASE\n" +
+                "\t\t   \tWHEN utente1 = %1$s THEN utente2\n" +
+                "\t\t\tWHEN utente2 = %1$s THEN utente1\t   \n" +
+                "\t\t    END) as steam_id\n" +
+                "\tFROM amicodi\n" +
+                "\tWHERE utente1 = %1$s or utente2 = %1$s) AS X\n" +
+                "\tNATURAL JOIN Libreria NATURAL JOIN UTENTE\n" +
+                "\tWHERE game_id = %1$s", 2);
 
 
         static final int count = implementedQueries.values().length;
