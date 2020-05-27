@@ -8,13 +8,37 @@ import java.util.ArrayList;
 
 public class Query {
 
-
     /**
      * Enumeration of implemented queries. Each new query ready to be displayed in {@code QueryWindow} should be
      * defined here, along with its sql code and number of parameters. No other code has to be written,
      * except for the form in queryWin.form.
      */
     public enum implementedQueries {
+        QUERY1("SELECT steam_id, username FROM(\n" +
+                "\tSELECT (CASE\n" +
+                "\t\t   \tWHEN utente1 = %1$s THEN utente2\n" +
+                "\t\t\tWHEN utente2 = %1$s THEN utente1\t   \n" +
+                "\t\t    END) as steam_id\n" +
+                "\tFROM amicodi\n" +
+                "\tWHERE utente1 = %1$s or utente2 = %1$s) AS X\n" +
+                "\tNATURAL JOIN Libreria NATURAL JOIN UTENTE\n" +
+                "\tWHERE game_id = %2$s", 2),
+        QUERY2("SELECT game_id, nome, round(AVG(voto),2) as mediaVoti\n" +
+                "FROM GIOCO NATURAL JOIN Recensisce\n" +
+                "GROUP BY game_id\n" +
+                "ORDER BY mediaVoti DESC\n" +
+                "LIMIT 10;", 0),
+        QUERY3("DROP VIEW IF EXISTS NUM_DOWNLOAD;\n" +
+                "\n" +
+                "CREATE VIEW NUM_DOWNLOAD AS\n" +
+                "\tSELECT game_id, nome, count(*) AS num_download\n" +
+                "\tFROM Libreria NATURAL JOIN GIOCO\n" +
+                "\tGROUP BY game_id, nome;\n" +
+                "\n" +
+                "SELECT game_id, nome, num_download\n" +
+                "FROM GIOCO NATURAL JOIN NUM_DOWNLOAD\n" +
+                "ORDER BY num_download DESC\n" +
+                "LIMIT 10;", 0),
         QUERY4("SELECT game_id, nome, round(ottenuti::numeric/totali, 2) * 100 AS percentuale_completamento\n" +
                 "FROM (( SELECT game_id, count(*) AS totali\n" +
                 "\t   FROM ACHIEVEMENT NATURAL JOIN ( \n" +
@@ -26,16 +50,70 @@ public class Query {
                 "\t   FROM Guadagna\n" +
                 "\t   WHERE steam_id = %1$s\n" +
                 "\t   GROUP BY game_id ) AS Z) NATURAL JOIN GIOCO;", 1),
-        QUERY1("SELECT steam_id, username FROM(\n" +
+        QUERY5("DROP VIEW IF EXISTS TAGS;\n" +
+                "DROP VIEW IF EXISTS GIOCHI_POSSEDUTI; \n" +
+                "DROP VIEW IF EXISTS NUM_DOWNLOAD;\n" +
+                "\n" +
+                "CREATE VIEW NUM_DOWNLOAD AS\n" +
+                "\tSELECT game_id, nome, count(*) AS num_download\n" +
+                "\tFROM Libreria NATURAL JOIN GIOCO\n" +
+                "\tGROUP BY game_id, nome;\n" +
+                "\n" +
+                "CREATE VIEW GIOCHI_POSSEDUTI AS\n" +
+                "\tSELECT game_id, ore_gioco\n" +
+                "\tFROM Libreria\n" +
+                "\tWHERE steam_id = %1$s;\n" +
+                "\t\n" +
+                "CREATE VIEW TAGS AS\n" +
+                "\tSELECT genere \n" +
+                "\tFROM Tag NATURAL JOIN ( \n" +
+                "\t\tSELECT game_id\n" +
+                "\t    FROM GIOCHI_POSSEDUTI \n" +
+                "\t    WHERE ore_gioco = ( SELECT MAX(ore_gioco) FROM GIOCHI_POSSEDUTI )) AS X;\n" +
+                "\n" +
+                "SELECT game_id, nome, generi_in_comune, num_download\n" +
+                "FROM ( SELECT game_id, count(*) AS generi_in_comune\n" +
+                "       FROM Tag NATURAL JOIN (\n" +
+                "\t\t   SELECT game_id \n" +
+                "\t\t   FROM GIOCO EXCEPT (SELECT game_id FROM GIOCHI_POSSEDUTI)) AS X\n" +
+                "\t   WHERE genere IN ( SELECT genere FROM TAGS )\n" +
+                "\t   GROUP BY game_id ) AS Y \n" +
+                "\t   NATURAL JOIN NUM_DOWNLOAD\n" +
+                "ORDER BY generi_in_comune DESC, num_download DESC\n" +
+                "LIMIT 5;", 1),
+        QUERY6("DROP VIEW IF EXISTS FRIENDS;\n" +
+                "\n" +
+                "CREATE VIEW FRIENDS AS\n" +
                 "\tSELECT (CASE\n" +
                 "\t\t   \tWHEN utente1 = %1$s THEN utente2\n" +
                 "\t\t\tWHEN utente2 = %1$s THEN utente1\t   \n" +
                 "\t\t    END) as steam_id\n" +
                 "\tFROM amicodi\n" +
-                "\tWHERE utente1 = %1$s or utente2 = %1$s) AS X\n" +
-                "\tNATURAL JOIN Libreria NATURAL JOIN UTENTE\n" +
-                "\tWHERE game_id = %1$s", 2);
-
+                "\tWHERE utente1 = %1$s or utente2 = %1$s;\n" +
+                "\n" +
+                "SELECT game_id, nome, prezzo\n" +
+                "FROM (FRIENDS NATURAL JOIN listadesideri) NATURAL JOIN GIOCO \n" +
+                "WHERE prezzo <= (SELECT saldo_steam FROM PORTAFOGLIO WHERE steam_id = %1$s);", 1),
+        QUERY7("SELECT id_oggetto, COUNT(*) AS num_vendite\n" +
+                "FROM VENDITA\n" +
+                "WHERE id_oggetto = %1$s AND \n" +
+                "\t(SELECT NOW()::DATE) - data_vendita <= %2$s\n" +
+                "GROUP BY id_oggetto;", 2),
+        QUERY8("SELECT id_oggetto, data_vendita, X.prezzo, X.game_id, nome\n" +
+                "FROM (vendita NATURAL LEFT JOIN OG) AS X\n" +
+                "\tLEFT JOIN GIOCO ON (X.game_id = GIOCO.game_id)\n" +
+                "WHERE (acquirente = %1$s AND venditore = %2$s) OR (acquirente = %2$s AND venditore = %1$s)\n" +
+                "ORDER BY data_vendita;", 2),
+        QUERY9("SELECT game_id, id_oggetto, medaglia\n" +
+                "FROM OG NATURAL JOIN MO\n" +
+                "WHERE game_id IN (SELECT game_id\n" +
+                "\t\t\t\t  FROM Libreria\n" +
+                "\t\t\t\t  WHERE steam_id = %1$s)\n" +
+                "EXCEPT \n" +
+                "SELECT game_id, id_oggetto, medaglia\n" +
+                "FROM Possiede NATURAL JOIN MO NATURAL JOIN OG\n" +
+                "WHERE steam_id = %1$s\n" +
+                "ORDER BY game_id;", 1);
 
         static final int count = implementedQueries.values().length;
         final String sql;
@@ -46,8 +124,6 @@ public class Query {
             params = noParams;
         }
     }
-
-    ;
 
     private final String SQLQuery;
     String[] columns = new String[0];
@@ -85,11 +161,15 @@ public class Query {
         error = "";
         result.clear();
         try (Statement stm = SteamApp.connection.createStatement()) {
-            ResultSet rs = stm.executeQuery(String.format(SQLQuery, userParams));
-            setColumns(rs.getMetaData());
-            while (rs.next()) {
-                System.out.println("record found"); //TODO
-                result.add(getRecord(rs));
+            for (String s : String.format(SQLQuery, userParams).split(";")) {
+                stm.execute(s);
+                ResultSet rs = stm.getResultSet();
+                if (rs != null) {
+                    setColumns(rs.getMetaData());
+                    while (rs.next()) {
+                        result.add(getRecord(rs));
+                    }
+                }
             }
         } catch (SQLException e) {
             result.clear();

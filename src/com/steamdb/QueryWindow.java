@@ -22,6 +22,42 @@ public class QueryWindow {
     protected JButton search_QUERY1;
     protected JTable table_QUERY1;
     protected JLabel response_QUERY1;
+    //Query 2
+    protected JButton search_QUERY2;
+    protected JLabel response_QUERY2;
+    protected JTable table_QUERY2;
+    //Query 3
+    protected JButton search_QUERY3;
+    protected JLabel response_QUERY3;
+    protected JTable table_QUERY3;
+    //Query 5
+    protected JTextField param_QUERY5_0;
+    protected JButton search_QUERY5;
+    protected JTable table_QUERY5;
+    protected JLabel response_QUERY5;
+    //Query 6
+    protected JTable table_QUERY6;
+    protected JButton search_QUERY6;
+    protected JLabel response_QUERY6;
+    protected JTextField param_QUERY6_0;
+    //Query 7
+    protected JTable table_QUERY7;
+    protected JButton search_QUERY7;
+    protected JLabel response_QUERY7;
+    protected JTextField param_QUERY7_0;
+    protected JTextField param_QUERY7_1;
+    //Query 8
+    protected JTextField param_QUERY8_0;
+    protected JTextField param_QUERY8_1;
+    protected JButton search_QUERY8;
+    protected JTable table_QUERY8;
+    protected JLabel response_QUERY8;
+    //Query 9
+    protected JTextField param_QUERY9_0;
+    protected JButton search_QUERY9;
+    protected JTable table_QUERY9;
+    protected JLabel response_QUERY9;
+
 
     static final int noQueries = Query.implementedQueries.count;
     static final Query.implementedQueries[] queryNames = Query.implementedQueries.values();

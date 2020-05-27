@@ -6,8 +6,9 @@
       <xy x="20" y="20" width="687" height="627"/>
     </constraints>
     <properties>
-      <minimumSize width="500" height="500"/>
-      <preferredSize width="600" height="550"/>
+      <minimumSize width="-1" height="-1"/>
+      <opaque value="true"/>
+      <preferredSize width="700" height="700"/>
       <requestFocusEnabled value="false"/>
     </properties>
     <border type="none"/>
@@ -15,7 +16,7 @@
       <tabbedpane id="43a53" default-binding="true">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="200" height="200"/>
+            <preferred-size width="500" height="500"/>
           </grid>
         </constraints>
         <properties>
@@ -31,7 +32,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="3b20a" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="3b20a" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -79,7 +80,7 @@
                   </component>
                   <hspacer id="4d34">
                     <constraints>
-                      <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
                   <vspacer id="14972">
@@ -106,15 +107,6 @@
                     <properties>
                       <font style="1"/>
                       <text value="game_id"/>
-                    </properties>
-                  </component>
-                  <component id="33d8d" class="javax.swing.JButton" binding="search_QUERY1">
-                    <constraints>
-                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <name value="search_QUERY1"/>
-                      <text value="cerca"/>
                     </properties>
                   </component>
                   <vspacer id="6e7f9">
@@ -158,13 +150,185 @@
                   <text value=""/>
                 </properties>
               </component>
-              <vspacer id="f4f79">
+              <component id="33d8d" class="javax.swing.JButton" binding="search_QUERY1">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                    <preferred-size width="10" height="10"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY1"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="71f1e" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 2"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="648c5" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b522d" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Mostrare una classifica dei primi 10 giochi in base alla media dei voti."/>
+                    </properties>
+                  </component>
+                  <vspacer id="17d3d">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <vspacer id="cf260">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="8"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="7d5b3">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="1c65d" class="javax.swing.JTable" binding="table_QUERY2">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY2"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="d291d" class="javax.swing.JLabel" binding="response_QUERY2">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
                   </grid>
                 </constraints>
-              </vspacer>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <name value="response_QUERY2"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="609c2" class="javax.swing.JButton" binding="search_QUERY2">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY2"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="3a2b8" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 3"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="ad861" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1edb" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Mostrare la classifica dei primi 10 giochi più scaricati."/>
+                    </properties>
+                  </component>
+                  <vspacer id="1ad">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <vspacer id="c5ce5">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="8"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="eced7">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="faf74" class="javax.swing.JTable" binding="table_QUERY3">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY3"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="b0075" class="javax.swing.JLabel" binding="response_QUERY3">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <name value="response_QUERY3"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="6fff7" class="javax.swing.JButton" binding="search_QUERY3">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY3"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="b3e4d" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -175,7 +339,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="ebcf1" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="ebcf1" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -220,18 +384,9 @@
                       <name value="param_QUERY4_0"/>
                     </properties>
                   </component>
-                  <component id="74f6a" class="javax.swing.JButton" binding="search_QUERY4">
-                    <constraints>
-                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <name value="search_QUERY4"/>
-                      <text value="cerca"/>
-                    </properties>
-                  </component>
                   <hspacer id="4c1c9">
                     <constraints>
-                      <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                   </hspacer>
                   <vspacer id="40715">
@@ -283,13 +438,664 @@
                   <text value=""/>
                 </properties>
               </component>
-              <vspacer id="1d587">
+              <component id="74f6a" class="javax.swing.JButton" binding="search_QUERY4">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                    <preferred-size width="10" height="10"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY4"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="fa4a" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 5"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="c4eed" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="d0fed" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Per un dato utente (steam_id), mostrare un sottoinsieme (di cardinalità 5) "/>
+                    </properties>
+                  </component>
+                  <component id="a4e85" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="steam_id"/>
+                    </properties>
+                  </component>
+                  <component id="64f12" class="javax.swing.JTextField" binding="param_QUERY5_0">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY5_0"/>
+                    </properties>
+                  </component>
+                  <hspacer id="f0ac5">
+                    <constraints>
+                      <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <vspacer id="bd11">
+                    <constraints>
+                      <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <vspacer id="2a9e0">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <component id="ab6f6" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="di giochi non posseduti che potrebbero interessare all’utente. "/>
+                    </properties>
+                  </component>
+                  <component id="af6aa" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="I giochi consigliati sono scelti se hanno in comune almeno 1 genere con il gioco più giocato dall’utente;"/>
+                    </properties>
+                  </component>
+                  <component id="f6a63" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="di questi si preferisce mostrare quelli che hanno più generi in comune e con più download."/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <scrollpane id="85620">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="2f81f" class="javax.swing.JTable" binding="table_QUERY5">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY5"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="c8ed9" class="javax.swing.JLabel" binding="response_QUERY5">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
                   </grid>
                 </constraints>
-              </vspacer>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <name value="response_QUERY5"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="678e3" class="javax.swing.JButton" binding="search_QUERY5">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY5"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="b34a9" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 6"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="534c0" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="da1d5" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Per un dato utente X (steam_id), mostrare i giochi contenuti nella lista dei desideri"/>
+                    </properties>
+                  </component>
+                  <component id="bd286" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="di ogni suo amico che, con l’attuale saldo steam, X ha la possibilità di regalargli."/>
+                    </properties>
+                  </component>
+                  <component id="2f0f0" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="steam_id"/>
+                    </properties>
+                  </component>
+                  <component id="66c71" class="javax.swing.JTextField" binding="param_QUERY6_0">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY6_0"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <hspacer id="5fdb">
+                    <constraints>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <vspacer id="2ae29">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <vspacer id="906a1">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="419aa">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="44d0" class="javax.swing.JTable" binding="table_QUERY6">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY6"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="8add4" class="javax.swing.JLabel" binding="response_QUERY6">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <name value="response_QUERY6"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="2f346" class="javax.swing.JButton" binding="search_QUERY6">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY6"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="d5673" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 7"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="4ad23" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="57ef3" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Dato un oggetto (id_oggetto), mostrare quante volte è stato venduto"/>
+                    </properties>
+                  </component>
+                  <component id="9eb33" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="negli ultimi (num_giorni) giorni."/>
+                    </properties>
+                  </component>
+                  <component id="f483" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="id_oggetto"/>
+                    </properties>
+                  </component>
+                  <component id="97e68" class="javax.swing.JTextField" binding="param_QUERY7_0">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY7_0"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <hspacer id="58910">
+                    <constraints>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <vspacer id="7212f">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <component id="f05bc" class="javax.swing.JTextField" binding="param_QUERY7_1">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY7_1"/>
+                    </properties>
+                  </component>
+                  <component id="9c3f2" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="num_giorni"/>
+                    </properties>
+                  </component>
+                  <vspacer id="af19e">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="ccffb">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="44765" class="javax.swing.JTable" binding="table_QUERY7">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY7"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="ddc06" class="javax.swing.JLabel" binding="response_QUERY7">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <name value="response_QUERY7"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="5e7a6" class="javax.swing.JButton" binding="search_QUERY7">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY7"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="2b918" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 8"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="c84ca" layout-manager="GridLayoutManager" row-count="6" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="400c" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Mostrare tutti gli scambi avvenuti tra due dati utenti, X e Y (steam_id), in ordine"/>
+                    </properties>
+                  </component>
+                  <component id="58b8a" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="cronologico. Mostrare inoltre a quale gioco appartiene ogni oggetto scambiato."/>
+                    </properties>
+                  </component>
+                  <component id="ad3f9" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="steam_id"/>
+                    </properties>
+                  </component>
+                  <component id="30094" class="javax.swing.JTextField" binding="param_QUERY8_0">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY8_0"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <hspacer id="e6799">
+                    <constraints>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <vspacer id="f3f49">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <component id="53c15" class="javax.swing.JTextField" binding="param_QUERY8_1">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY8_1"/>
+                    </properties>
+                  </component>
+                  <component id="52d57" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="steam_id"/>
+                    </properties>
+                  </component>
+                  <vspacer id="a6d1b">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="c34b1">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="e772e" class="javax.swing.JTable" binding="table_QUERY8">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY8"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="74537" class="javax.swing.JLabel" binding="response_QUERY8">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <name value="response_QUERY8"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="e55cb" class="javax.swing.JButton" binding="search_QUERY8">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY8"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="99641" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="0" right="10"/>
+            <constraints>
+              <tabbedpane title="Query 9"/>
+            </constraints>
+            <properties>
+              <preferredSize width="500" height="500"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="4324d" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="9d0f7" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="Dato un utente (steam_id), per ogni gioco posseduto, mostrare quali oggetti"/>
+                    </properties>
+                  </component>
+                  <component id="7cfdf" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="0"/>
+                      <text value="collezionabili mancano per vincere la medaglia del gioco."/>
+                    </properties>
+                  </component>
+                  <component id="69f1" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font style="1"/>
+                      <text value="steam_id"/>
+                    </properties>
+                  </component>
+                  <component id="6b77a" class="javax.swing.JTextField" binding="param_QUERY9_0">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <name value="param_QUERY9_0"/>
+                    </properties>
+                  </component>
+                  <hspacer id="86811">
+                    <constraints>
+                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <vspacer id="72e8e">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="5" height="5"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                  <vspacer id="6355f">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <scrollpane id="6574b">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="20"/>
+                  <wheelScrollingEnabled value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="e346e" class="javax.swing.JTable" binding="table_QUERY9">
+                    <constraints/>
+                    <properties>
+                      <autoscrolls value="false"/>
+                      <enabled value="false"/>
+                      <fillsViewportHeight value="true"/>
+                      <name value="table_QUERY9"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="ec95d" class="javax.swing.JLabel" binding="response_QUERY9">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <name value="response_QUERY9"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="2800e" class="javax.swing.JButton" binding="search_QUERY9">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <name value="search_QUERY9"/>
+                  <text value="cerca"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>
