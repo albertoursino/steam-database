@@ -8,12 +8,12 @@ public class MainWindow {
     static String DEFAULT_DB = "Steam";
     static String DEFAULT_PORT = "5432";
 
-    public MainWindow(){
+    public MainWindow() {
         servPortText.setText(DEFAULT_PORT);
         connResponse.setText(FILL_FIELDS);
         dbNameText.setText(DEFAULT_DB);
         connBtn.setText("Connetti");
-        //queryBtn.setEnabled(false); //TODO
+        queryBtn.setEnabled(false);
     }
 
     JPanel mainPanel;
@@ -31,4 +31,5 @@ public class MainWindow {
     private JLabel dbName;
     private JLabel user;
     private JLabel passwd;
+
 }

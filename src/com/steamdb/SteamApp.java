@@ -22,7 +22,7 @@ public class SteamApp {
     /**
      * Display the main window. Set up listener for connect button in order to connect to the database.
      * If this is successful, enable the query button and set the listener for the query window to be displayed.
-     * */
+     */
     public void showMainWindow() {
         JFrame frame = new JFrame(title);
         mainWin = new MainWindow();
@@ -37,22 +37,21 @@ public class SteamApp {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     Class.forName("org.postgresql.Driver");
-                    if(mainWin.connBtn.getText().equals("Connetti")){
+                    if (mainWin.connBtn.getText().equals("Connetti")) {
                         if (connection != null)
                             connection.close();
                         connection = createConnection(mainWin.servAddrText.getText(), mainWin.servPortText.getText(),
-                            mainWin.dbNameText.getText(), mainWin.userText.getText(),
-                            String.valueOf(mainWin.passwdText.getPassword()));
+                                mainWin.dbNameText.getText(), mainWin.userText.getText(),
+                                String.valueOf(mainWin.passwdText.getPassword()));
                         mainWin.connResponse.setText("Connessione stabilita. E' possibile interrogare il db.");
                         mainWin.queryBtn.setEnabled(true);
                         mainWin.connBtn.setText("Disconnetti");
                         return;
-                    }
-                    else {
+                    } else {
                         connection.close();
                         mainWin.connResponse.setText("Riempire i campi per connettersi al database");
                     }
-                }catch(Exception e) {
+                } catch (Exception e) {
                     mainWin.connResponse.setText(Utils.htmlStyleStr(e.getMessage(),
                             50, Utils.LabelAlignment.center, errorColor));
                 }
@@ -71,7 +70,7 @@ public class SteamApp {
 
     /**
      * display the query window as modal dialog
-     * */
+     */
     public void showQueryWindow() {
         JDialog dialog = new JDialog((JFrame) null, "interroga il db", true);
         queryWin = new QueryWindow();
