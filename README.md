@@ -14,9 +14,9 @@ This project is based on creating a Java language application
 capable of querying a database, always created by us, inspired by the homonymous and famous game platform, [Steam](https://store.steampowered.com/). 
 
 To use the application just download the file named "SteamApp.jar".
-To query the database you must first contact us (see authors) in order to create an account with the appropriate permissions.
+To query the database you must first contact us (see authors) in order to create an account within it with the appropriate permissions.
 
-Minimum version of java supported: 13.0.1
+Minimum version of java jdk supported: 13.0.1
 
 License
 =======
