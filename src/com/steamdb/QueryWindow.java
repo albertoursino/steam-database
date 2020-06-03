@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 import static com.steamdb.SteamApp.errorColor;
 import static java.lang.System.exit;
 
-
 public class QueryWindow {
+
     protected JPanel mainPanel;
     //Query 4
     protected JTable table_QUERY4;
@@ -57,7 +57,6 @@ public class QueryWindow {
     protected JButton search_QUERY9;
     protected JTable table_QUERY9;
     protected JLabel response_QUERY9;
-
 
     static final int noQueries = Query.implementedQueries.count;
     static final Query.implementedQueries[] queryNames = Query.implementedQueries.values();
@@ -107,6 +106,7 @@ public class QueryWindow {
                 }
             });
         }
+
     }
 
     /**
@@ -143,4 +143,5 @@ public class QueryWindow {
         }
         return field;
     }
+
 }

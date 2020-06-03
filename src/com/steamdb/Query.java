@@ -201,4 +201,5 @@ public class Query {
         for (int ic = 0; ic < columns.length; ic++)
             columns[ic] = data.getColumnLabel(ic + 1);
     }
+
 }

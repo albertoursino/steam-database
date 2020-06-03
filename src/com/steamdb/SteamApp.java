@@ -85,8 +85,7 @@ public class SteamApp {
     public static void main(final String[] args) {
         SteamApp steamApp = new SteamApp(args);
 
-        // Schedule a job for the event-dispatching thread:
-        // creating and showing this application's GUI.
+        // Schedule a job for the event-dispatching thread: creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 steamApp.showMainWindow();
@@ -108,4 +107,5 @@ public class SteamApp {
         return DriverManager.getConnection("jdbc:postgresql://" +
                 address + ":" + port + "/" + dbName, username, password);
     }
+
 }

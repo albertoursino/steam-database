@@ -1,6 +1,7 @@
 package com.steamdb;
 
 public class Utils {
+
     enum LabelAlignment {left, right, center}
 
     /**
@@ -31,4 +32,5 @@ public class Utils {
         builder.append(end);
         return builder.toString();
     }
+
 }
