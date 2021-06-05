@@ -1,8 +1,8 @@
-package com.steamdb;
+package code;
 
 public class Utils {
 
-    enum LabelAlignment {left, right, center}
+    public enum LabelAlignment {left, right, center}
 
     /**
      * format messages such that JLabels displaying it contain at most breakLen chars for each line.
@@ -14,7 +14,7 @@ public class Utils {
      * @param color     of the text
      * @return the formatted html message
      */
-    static String htmlStyleStr(String msg, int breakLen, LabelAlignment alignment, String color) {
+    public static String htmlStyleStr(String msg, int breakLen, LabelAlignment alignment, String color) {
         String head = "<html>";
         if (alignment != null) head += "<p style='text-align:" + alignment.toString() + "'";
         if (color != null) head += " color='" + color + "'>";

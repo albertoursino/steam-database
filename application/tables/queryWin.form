@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.steamdb.QueryWindow">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="tables.QueryWindow">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -27,7 +27,7 @@
           <grid id="33036" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 1"/>
+              <tabbedpane title="code.Query 1"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -164,7 +164,7 @@
           <grid id="71f1e" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 2"/>
+              <tabbedpane title="code.Query 2"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -249,7 +249,7 @@
           <grid id="3a2b8" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 3"/>
+              <tabbedpane title="code.Query 3"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -334,7 +334,7 @@
           <grid id="b3e4d" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 4"/>
+              <tabbedpane title="code.Query 4"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -452,7 +452,7 @@
           <grid id="fa4a" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 5"/>
+              <tabbedpane title="code.Query 5"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -588,7 +588,7 @@
           <grid id="b34a9" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 6"/>
+              <tabbedpane title="code.Query 6"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -707,7 +707,7 @@
           <grid id="d5673" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 7"/>
+              <tabbedpane title="code.Query 7"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -844,7 +844,7 @@
           <grid id="2b918" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 8"/>
+              <tabbedpane title="code.Query 8"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -981,7 +981,7 @@
           <grid id="99641" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <tabbedpane title="Query 9"/>
+              <tabbedpane title="code.Query 9"/>
             </constraints>
             <properties>
               <preferredSize width="500" height="500"/>

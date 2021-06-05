@@ -1,4 +1,4 @@
-package com.steamdb;
+package tables;
 
 import javax.swing.*;
 
@@ -16,15 +16,15 @@ public class MainWindow {
         queryBtn.setEnabled(false);
     }
 
-    JPanel mainPanel;
-    JTextField servAddrText;
-    JTextField servPortText;
-    JTextField dbNameText;
-    JPasswordField passwdText;
-    JTextField userText;
-    JButton connBtn;
-    JButton queryBtn;
-    JLabel connResponse;
+    public JPanel mainPanel;
+    public JTextField servAddrText;
+    public JTextField servPortText;
+    public JTextField dbNameText;
+    public JPasswordField passwdText;
+    public JTextField userText;
+    public JButton connBtn;
+    public JButton queryBtn;
+    public JLabel connResponse;
 
     private JLabel servAddr;
     private JLabel servPort;

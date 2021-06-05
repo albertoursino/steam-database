@@ -1,58 +1,61 @@
-package com.steamdb;
+package tables;
+
+import code.Query;
+import code.Utils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.steamdb.SteamApp.errorColor;
+import static code.Main.errorColor;
 import static java.lang.System.exit;
 
 public class QueryWindow {
 
-    protected JPanel mainPanel;
-    //Query 4
+    public JPanel mainPanel;
+    //code.Query 4
     protected JTable table_QUERY4;
     protected JButton search_QUERY4;
     protected JLabel response_QUERY4;
     protected JTextField param_QUERY4_0;
-    //Query 1
+    //code.Query 1
     protected JTextField param_QUERY1_1;
     protected JTextField param_QUERY1_0;
     protected JButton search_QUERY1;
     protected JTable table_QUERY1;
     protected JLabel response_QUERY1;
-    //Query 2
+    //code.Query 2
     protected JButton search_QUERY2;
     protected JLabel response_QUERY2;
     protected JTable table_QUERY2;
-    //Query 3
+    //code.Query 3
     protected JButton search_QUERY3;
     protected JLabel response_QUERY3;
     protected JTable table_QUERY3;
-    //Query 5
+    //code.Query 5
     protected JTextField param_QUERY5_0;
     protected JButton search_QUERY5;
     protected JTable table_QUERY5;
     protected JLabel response_QUERY5;
-    //Query 6
+    //code.Query 6
     protected JTable table_QUERY6;
     protected JButton search_QUERY6;
     protected JLabel response_QUERY6;
     protected JTextField param_QUERY6_0;
-    //Query 7
+    //code.Query 7
     protected JTable table_QUERY7;
     protected JButton search_QUERY7;
     protected JLabel response_QUERY7;
     protected JTextField param_QUERY7_0;
     protected JTextField param_QUERY7_1;
-    //Query 8
+    //code.Query 8
     protected JTextField param_QUERY8_0;
     protected JTextField param_QUERY8_1;
     protected JButton search_QUERY8;
     protected JTable table_QUERY8;
     protected JLabel response_QUERY8;
-    //Query 9
+    //code.Query 9
     protected JTextField param_QUERY9_0;
     protected JButton search_QUERY9;
     protected JTable table_QUERY9;
@@ -67,7 +70,7 @@ public class QueryWindow {
     private static final String resultOutput = "Risultati trovati";
     private static final String namesBadlyFormatted = "Le variabili impostate dal designer non corrispondono alla convenzione di denominazione";
 
-    QueryWindow() {
+    public QueryWindow() {
         init();
     }
 
@@ -111,7 +114,7 @@ public class QueryWindow {
 
     /**
      * Populate the table for the specified query.
-     * Remember this has to be called after calling Query.execute() on the query.
+     * Remember this has to be called after calling code.Query.execute() on the query.
      *
      * @param query for this table
      */

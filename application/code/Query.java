@@ -1,4 +1,4 @@
-package com.steamdb;
+package code;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -115,9 +115,9 @@ public class Query {
                 "WHERE steam_id = %1$s\n" +
                 "ORDER BY game_id;", 1);
 
-        static final int count = implementedQueries.values().length;
+        public static final int count = implementedQueries.values().length;
         final String sql;
-        final int params;
+        public final int params;
 
         implementedQueries(String str, int noParams) {
             sql = str;
@@ -126,10 +126,10 @@ public class Query {
     }
 
     private final String SQLQuery;
-    String[] columns = new String[0];
+    public String[] columns = new String[0];
 
-    final ArrayList<Object[]> result = new ArrayList<>();
-    String error = "";
+    public final ArrayList<Object[]> result = new ArrayList<>();
+    public String error = "";
 
     /**
      * Constructor.
@@ -160,7 +160,7 @@ public class Query {
     public int execute(Object[] userParams) {
         error = "";
         result.clear();
-        try (Statement stm = SteamApp.connection.createStatement()) {
+        try (Statement stm = Main.connection.createStatement()) {
             for (String s : String.format(SQLQuery, userParams).split(";")) {
                 stm.execute(s);
                 ResultSet rs = stm.getResultSet();

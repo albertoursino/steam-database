@@ -1,4 +1,7 @@
-package com.steamdb;
+package code;
+
+import tables.MainWindow;
+import tables.QueryWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -7,16 +10,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class SteamApp {
+public class Main {
 
     static Connection connection = null;
     static MainWindow mainWin = null;
     static QueryWindow queryWin = null;
 
     public static String title = "Steam Database Application";
-    static final String errorColor = "red";
+    public static final String errorColor = "red";
 
-    SteamApp(String[] args) {
+    Main(String[] args) {
     }
 
     /**
@@ -83,12 +86,12 @@ public class SteamApp {
     }
 
     public static void main(final String[] args) {
-        SteamApp steamApp = new SteamApp(args);
+        Main main = new Main(args);
 
         // Schedule a job for the event-dispatching thread: creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                steamApp.showMainWindow();
+                main.showMainWindow();
             }
         });
     }
