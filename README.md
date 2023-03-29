@@ -5,9 +5,6 @@ SteamApp
 
 Project for a Database course of University of Padova.<br>
 
-For more information look at the [datasheet](https://github.com/lettomobile/SteamApp/blob/master/Datasheet%20Database%20Steam.pdf).<br>
-The project is totally written in Italian.
-
 Application & Instructions
 ============
 
