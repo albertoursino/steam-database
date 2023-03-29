@@ -8,8 +8,7 @@ Project for a Database course of University of Padova.<br>
 Application & Instructions
 ============
 
-This project is based on creating a Java language application
-capable of querying a database, always created by us, inspired by the homonymous and famous game platform, [Steam](https://store.steampowered.com/). 
+This project is based on creating a Java language application capable of querying a database (created by us) inspired by the homonymous game platform [Steam](https://store.steampowered.com/). 
 
 To use the application just download [SteamApp](https://github.com/lettomobile/SteamApp/blob/master/SteamApp.jar).
 To query the database you must first contact us (see authors) in order to create an account within it with the appropriate permissions.
