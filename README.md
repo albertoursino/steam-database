@@ -3,7 +3,7 @@ SteamApp
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5ddd5f4a0ed4467b1ef919fa36b96a3)](https://app.codacy.com/manual/lettomobile/SteamApp?utm_source=github.com&utm_medium=referral&utm_content=lettomobile/SteamApp&utm_campaign=Badge_Grade_Dashboard)
 
-Project for the Database course at University of Padova.<br>
+Project for a Database course of University of Padova.<br>
 
 For more information look at the [datasheet](https://github.com/lettomobile/SteamApp/blob/master/Datasheet%20Database%20Steam.pdf).<br>
 The project is totally written in Italian.
